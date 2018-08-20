@@ -122,6 +122,11 @@ button {
   border-radius: 3px;
   padding-top: 6px;
   padding-bottom: 6px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 
 .txt-box {
@@ -180,6 +185,7 @@ button {
 
 .nav {
   background: rgba(0, 0, 0, 0.75);
+  padding: 16px 42px;
 }
 
 .nav::after {
@@ -190,7 +196,6 @@ button {
 
 .nav .logo {
   float: left;
-  padding: 16px 42px;
 }
 
 .nav .logo a {
@@ -215,17 +220,17 @@ button {
 
 @media (max-width: 767px) {
   .nav .menu {
-    max-height: 0px;
-    overflow: hidden;
-    -webkit-transition: max-height 2.3s;
-    transition: max-height 2.3s;
     position: absolute;
-    z-index: 100;
-    left: 0;
     right: 0;
-    top: 56px;
-    margin-right: 0;
-    background: rgba(0, 0, 0, 0.75);
+    top: 62px;
+    z-index: 11;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-transform: translateX(400px);
+            transform: translateX(400px);
+    padding-left: 10px;
+    padding-right: 30px;
   }
 }
 
@@ -236,41 +241,75 @@ button {
 @media (max-width: 767px) {
   .nav .menu li {
     float: none;
+    margin: 15px 0;
   }
 }
 
 .nav .menu li a {
   display: block;
   color: #fff;
-  padding: 18px 15px;
+  line-height: 30px;
+  width: 85px;
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
 }
 
-.nav .menu li a:hover {
-  font-weight: bold;
+.nav .menu li a:hover, .nav .menu li a:active {
+  letter-spacing: 3px;
 }
 
-.showmenu {
+.nav .menu li a:after, .nav .menu li a:before {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  content: "";
+  display: block;
+  margin: 0 auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 0;
+  position: relative;
+}
+
+.nav .menu li a:hover:after, .nav .menu li a:hover:before {
+  border-color: #fff;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  width: 80%;
+}
+
+.nav .menu li a:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 80%;
+}
+
+.burger-menu {
   display: none;
   color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 15px 10px;
 }
 
 @media (max-width: 767px) {
-  .showmenu {
+  .burger-menu {
     display: block;
     float: right;
   }
 }
 
-.showmenu .menu {
-  max-height: 420px;
+.burger-menu .icon-bar {
+  display: block;
+  background: #fff;
+  border-radius: 3px;
+  height: 5px;
+  width: 35px;
+  margin-top: 5px;
 }
 
 @media (max-width: 767px) {
   .menu-show .menu {
-    max-height: 420px;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 
@@ -705,6 +744,7 @@ button {
   background: #3d1101;
   color: #fff;
   padding: 12px;
+  cursor: pointer;
 }
 
 .item-top .order {
@@ -723,6 +763,7 @@ button {
 .item-top .order span {
   margin-left: 12px;
   padding-left: 12px;
+  cursor: pointer;
 }
 
 .item-top .order .dec-line {
@@ -818,6 +859,18 @@ button {
   color: #FF5E45;
   border: 2px solid #FF5E45;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.item li button:hover {
+  background: #FF5E45;
+  color: #fff;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.item li button:focus {
+  outline: none;
 }
 
 .login {

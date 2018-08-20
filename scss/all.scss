@@ -80,7 +80,11 @@ button {
   color: #fff;
   border-radius: 3px;
   padding-top: 6px;
-  padding-bottom: 6px; 
+  padding-bottom: 6px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 }
 
 // input 樣式
@@ -132,72 +136,100 @@ button {
 
 .nav {
   background: rgba(0, 0, 0, 0.75);
+  padding: 16px 42px;
   @include clearfix;
   .logo {
     float: left;
-    padding: 16px 42px;
-    a {
-      display: block;
-      background: url(../images/logo_w@svg.svg) no-repeat;
-      width: 120px;
-      height: 24px;
-      text-indent: 101%;
-      overflow: hidden;
-      white-space: nowrap;
+      a {
+        display: block;
+        background: url(../images/logo_w@svg.svg) no-repeat;
+        width: 120px;
+        height: 24px;
+        text-indent: 101%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
     }
-  }
   .menu {
     float: right;
     @include clearfix;
     @include tablet {
-      max-height: 0px;
-      overflow: hidden;
-      transition: max-height 2.3s;
       position: absolute;
-      z-index: 100;
-      left: 0;
       right: 0;
-      top: 56px;
-      margin-right: 0;
-      background: rgba(0, 0, 0, 0.75);
+      top: 62px;
+      z-index: 11;
+      background: #000;
+      transition: all 0.5s ease;
+      transform: translateX(400px);
+      padding-left: 10px;
+      padding-right: 30px;
     }
     li {
     float: left;
     @include tablet {
       float: none;
+      margin: 15px 0;
     }
       a {
         display: block;
         color: #fff;
-        padding: 18px 15px;
-        &:hover {
-          font-weight: bold;
+        line-height: 30px;
+        width: 85px;
+        letter-spacing: 0;
+        text-align: center;
+        cursor: pointer;
+        &:hover,
+        &:active {
+          letter-spacing: 3px;
+        }
+        &:after,
+        &:before {
+          backface-visibility: hidden;
+          border: 1px solid rgba(#fff, 0);
+          content: "";
+          display: block;
+          margin: 0 auto;
+          transition: all 0.3s ease-in-out;
+          width: 0;
+          position: relative;
+        }
+        &:hover:after,
+        &:hover:before {
+          border-color: #fff;
+          transition: width 0.4s ease-in-out;
+          width: 80%;
+        }
+        &:hover:before {
+          bottom: auto;
+          top: 0;
+          width: 80%;
         }
       }
     }
   }
 }
 
-// 響應式選單 
-.showmenu {
+.burger-menu {
   display: none;
   color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 15px 10px;
   @include tablet {
     display: block;
     float: right;
   }
-  .menu {
-    max-height: 420px;
+  .icon-bar {
+    display: block;
+    background: #fff;
+    border-radius: 3px;
+    height: 5px;
+    width: 35px;
+    margin-top: 5px;
   }
 }
 
 .menu-show {
   .menu {
   @include tablet{
-    max-height: 420px;
+    transform: translateX(0);
     }
   }
 }
@@ -517,6 +549,7 @@ button {
       background: $color-brown;
       color: #fff;
       padding: 12px;
+      cursor: pointer;
     }
   }
   .order {
@@ -530,6 +563,7 @@ button {
     span {
       margin-left: 12px;
       padding-left: 12px;
+      cursor: pointer;
     }
     .dec-line {
       border-left: 1px solid $color-brown;
@@ -605,6 +639,15 @@ button {
       color: #FF5E45;
       border: 2px solid #FF5E45;
       margin-bottom: 10px;
+      cursor: pointer; 
+      &:hover {
+        background: #FF5E45;
+        color: #fff;
+        transition: all 0.2s linear;
+      }
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
