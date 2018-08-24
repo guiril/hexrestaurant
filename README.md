@@ -1,3 +1,3 @@
 # 六角西餐廳
 
-https://ouiis.github.io/restaurant/
+https://ouiis.github.io/hexrestaurant/
