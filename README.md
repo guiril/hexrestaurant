@@ -1,4 +1,4 @@
 # 六角西餐廳
 * Scss
 * RWD
-* jQuery
+* jQuery: 漢堡選單
