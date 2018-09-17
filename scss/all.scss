@@ -2,19 +2,19 @@
 @import 'reset';
 @import 'box-sizing';
 
-@mixin pc {
+@mixin pc() {
 	@media (max-width: 960px) {
     @content;
   }
 }
 
-@mixin tablet {
+@mixin tablet() {
   @media (max-width: 767px) {
     @content;
   }
 }
 
-@mixin phone {
+@mixin phone() {
 	@media (max-width: 320px) {
     @content;
   }
@@ -228,7 +228,7 @@ button {
 
 .menu-show {
   .menu {
-  @include tablet{
+  @include tablet {
     transform: translateX(0);
     }
   }
@@ -249,7 +249,7 @@ button {
       padding-left: 1%;
       padding-right: 1%;
     }
-    @include tablet{
+    @include tablet {
       float: none;
       max-width: 96%;
       padding-left: 2%;
